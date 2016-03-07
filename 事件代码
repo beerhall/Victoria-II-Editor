@@ -1,0 +1,419 @@
+国家代码在...\config\world_names.csv   Ctrl+F 搜索要找的国家
+省份地区代码在...\config\province_names.csv   Ctrl+F 搜索要找的省份地区
+民族代号在...\config\world_names.csv       Ctrl+F 搜索要找的民族
+--------------------------------------------------------------------------------
+
+command = { type = pop_research_mod which = capitalists value = 50 } #资本家
+command = { type = pop_research_mod which = clergymen value = 25 } #牧师
+command = { type = pop_research_mod which = clerks value = 25 } #职员
+某职业科技贡献率%
+
+command = { type = research_time value = -10 }       #研究需要时间-10%
+command = { type = research_cost value = -10 }       #研究需要点数-10%
+--------------------------------------------------------------------------------
+
+command = { type = terminate_loans }     #所有债务一笔勾销
+command = { type = work_hour_eff value = 10 }  #工作时效+10%（可增加效率，税收等）
+--------------------------------------------------------------------------------
+
+command = { type = receiveprovince which = prov }
+#从某国得到某省    区地          
+command = { type = receivestate which = prov when = 0 }
+#从某国得到某省（全省地区）
+（这里只要写省份代号就够了，国家不用写）      
+
+command = { type = secedeprovince which = country  value = provice }
+#把自己某省    区地    割让给某国
+command = { type = secedestate  which = country value = prov when = 0 }
+#把自己某省（全省地区）割让给某国
+
+# 两国交战时
+command = { type = control which = country value = province }
+# 把某省    区地    控制权给某国
+command = { type = controlstate  which = country value = prov }
+# 把某省（全省地区）控制权给某国
+
+--------------------------------------------------------------------------------
+command = { type = make_satellite which = [country tag] }
+#让某国成为你的卫星国
+command = { type = end_satellite_mastery which = [country tag] }
+#取消某国是你的卫星国地位
+
+command = { type = make_dominion which = [country tag] }
+#让某国成为你的仆从国
+command = { type = end_dominion_mastery which = [country tag] }
+#取消某国是你的仆从国地位
+
+command = { type = end_satellite }        #结束你的卫星国地位
+command = { type = end_dominion }      #结束你的仆从国地位
+
+command = { type = make_colony which = [country tag] }               
+#使某国沦为殖民地（作用不明？？）
+
+--------------------------------------------------------------------------------
+command = { type = minority_emigration value = X }      #少数民族移民率 
+command = { type = colonial_migration value = X  }      #殖民地移民率
+
+command = { type = social_anthropology value = yes }    
+#随着时间推移，少数民族反抗意识减弱 
+--------------------------------------------------------------------------------
+
+command = { type = addcore which = provnum }        #拥有某省主权
+command = { type = removecore which = provnum  }    #放弃某省主权
+                #拥有西藏主权
+                command = { type = addcore which = 1493 }
+                command = { type = addcore which = 1494 }
+                command = { type = addcore which = 1523 }
+                command = { type = addcore which = 1524 }
+                command = { type = addcore which = 1521 }
+                command = { type = addcore which = 1522 }
+                command = { type = addcore which = 1520 }
+                command = { type = addcore which = 1517 }
+--------------------------------------------------------------------------------
+
+command = {type = literacy value = 0.02 }
+识字率+2%
+
+command = { type = strata_income_mod which = low value = 100 } #穷人
+command = { type = strata_income_mod which = middle value = 100 } #中产阶级
+command = { type = strata_income_mod which = rich value = 100 }  #富裕阶级
+阶级征税率+100%
+
+资本家红利+100%
+command = { type = capitalist_bonus value = 100 }
+贵族红利+100%
+command = { type = aristocrat_bonus value = 100 }
+(这个正确说法不叫红利，DZ大大说了是什么我忘了= =)
+
+--------------------------------------------------------------------------------
+
+command = { type = supplyconsumption which = infantry value = -2 }
+步兵维持费-2%
+command = { type = supplyconsumption which = artillery value = -2 }
+炮兵维持费-2%
+兵种：
+irregular        民兵
+infantry         步兵
+regular          步兵正规军加强
+hq               步兵指挥部
+artillery        步兵炮兵加强
+engineer         步兵工兵加强
+guard            步兵禁卫军加强
+barrel           步兵坦克旅加强
+bomber           步兵轰炸机加强
+fighter          步兵战斗机加强
+cavalry          骑兵
+cuirassier       胸甲骑兵
+dragoon          龙骑兵
+  
+ironclad             铁甲舰
+commerce_raider      小型炮舰
+monitor              鱼雷快艇
+steamer_transport    运输轮船
+submarine            潜水艇
+cruiser              巡洋舰
+battleship           战列舰
+dreadnought          无畏舰
+
+--------------------------------------------------------------------------------
+
+与某国结盟
+command = { type = alliance which = KOR }
+command = { type = alliance which = KOR value = 1 when = 1 }
+command = { type = alliance which = KOR value = [0/1] where = country when = [0/1] }
+
+If 'value = 1' 防御同盟. = 0 攻守同盟
+If 'where' 除某个国家外.
+'when' = 1 无时间限制 = 0 有限时间
+
+command = { type = peace which = [country tag] value = [0/1] }         
+#与某国和平 1 是单独和平  0是整个联盟   
+
+command = { type = neutrality }     # 解除所有同盟并释放卫星国
+
+------------------------------------------------------------------------------------
+
+command = { type = set_religion which = MAHAYANA }
+改国教
+CATHOLIC;天主教
+PROTESTANT;新教徒
+ORTHODOX;东正教
+SUNNI;逊尼派
+SHIITE;什叶派
+HINDU;印度教
+SHINTO;神道教
+THERAVADA;小乘佛教
+MAHAYANA;大乘佛教
+JEWISH;犹太教
+PAGAN;异教
+-------------------------------------------------------------------------------------
+
+
+#政治+社会改革
+command = { type = constitution which = [democracy/constitutional_monarchy/monarchy/presidential_dictatorship/proletarian_dictatorship]  }
+#民主主义/君主立宪制/君主制/总统共和制/无产阶级专政     
+      
+command = { type = executive_designation which = [parliamentarism/hms_government/laws_by_decree]  }
+#议会制/内阁制/元首制
+
+command = { type = party_system which = [multi_party/two_party/one_party]  }
+#多党制/两党制/一党制
+
+command = { type = national_value which = [liberty/equality/order]  }
+#国家价值：自由/平等/正常
+
+command = { type = voting_rights which = [none/landed/wealth/suffrage]  } 
+#选举权：无/地产/财产/普选
+
+command = { type = public_meetings value = [yes/no]  } 
+#公共集会
+
+command = {  type = press_rights which = [state_press/censorship/free_press]  } 
+#出版权：国家报道/检查制度/自由报道
+
+command = { type = political_parties which = [none_allowed/right_to_ban/all_allowed]  } 
+#组织政党：禁止/取缔/自由
+
+command = { type = trade_unions which = [none/non_socialist/socialist/all]  } 
+#工会：无/非社会主义/社会主义/自由
+
+command = { type = minimum_wages which = [none/trinkets/low/acceptable/good]  } 
+#最低工资。没有/最低限度/低/一般/高
+
+command = { type = maximum_workhours which = [8/10/12/14/24]  } 
+#24=无限制  #工作时间
+
+command = { type = safety_regulations which = [none/trinkets/low/acceptable/good]  } 
+#安全保障。没有/最低限度/低/一般/高
+
+command = { type = health_care which = [none/trinkets/low/acceptable/good]  }  
+#医疗保险。没有/最低限度/低/一般/高
+
+command = { type = unemployment_subsidies which = [none/trinkets/low/acceptable/good]  } 
+#失业补助。没有/最低限度/低/一般/高
+
+command = { type = pension_funds which = [none/trinkets/low/acceptable/good]   } 
+#养老金。没有/最低限度/低/一般/高
+坏孩子（BB）-10
+command = { type = badboy value = -10 }
+【查看BB值，F12打badboy就可以看见了】
+
+加钱200
+command = { type = treasury value = 200 }
+
+增加10个研究点
+command = { type = research_points value = 10 }
+
+税收增加100%
+command = { type = tax_eff value = 100 }
+
+国家开化
+command = { type = civilized value = yes }
+
+外交增加
+command = { type = diplomatic_efficiency value = 100 }
+
+-----------------------------------------------------------------------------
+
+预备队增加一个infantry（步兵）单位。
+
+command = { type = add_division which = infantry }
+
+就是已经编制好，就等你部署出来了
+
+command = { type = add_division which = infantry value = ??? }
+如果要加附属加成旅，就修改value = 
+
+
+一些部队对应名字：
+
+infantry        步兵
+
+cavalry         骑兵
+cuirassier     胸甲骑兵
+dragoon      龙骑兵
+
+附属加成
+regular          步兵正规军加强
+hq               步兵指挥部
+artillery        步兵炮兵加强
+engineer         步兵工兵加强
+guard            步兵禁卫军加强
+barrel           步兵坦克旅加强
+bomber           步兵轰炸机加强
+fighter          步兵战斗机加强
+
+
+  
+steamer_transport  运输轮船
+ironclad                  铁甲舰
+submarine              潜水艇
+cruiser                    巡洋舰
+battleship                战列舰（翻译中居然给翻译成了 前无畏舰）
+dreadnought          无畏舰
+
+-----------------------------------------------------------------------------------
+
+改变国家为GER国
+command = { type = country which = GER }
+
+
+吞并TIB国
+command = {type = inherit which = TIB }
+
+
+与KOR国结盟
+command = { type = alliance which = KOR }
+
+与CHI国关系+200
+command = { type = relation which = CHI value = 200 }
+
+
+国家代码在...\config\world_names.csv   Ctrl+F 搜索要找的国家
+
+
+------------------------------------------------------------------------------------
+
+1271地区生活环境加50
+command = { type = life_sustainability which = 1271  value = 50 }
+【生活环境高有助于那地区人口增长】
+
+
+迁都到583地区
+command = { type = capital which = 583 }
+
+
+1271地区产物变为 precious_metal（贵金属）
+command = {type = resource_type which = precious_metal where = 1271}
+
+
+省份地区代码在...\config\province_names.csv   Ctrl+F 搜索要找的省份地区
+
+
+一些产物代码：
+
+谷物     grain
+贵金属   precious_metal
+红茶     tea
+咖啡     coffee
+硫磺     sulphur
+煤       coal
+棉花     cotton
+牛       cattle
+热带木材 tropical_wood
+石油     oil
+丝绸     silk
+水果     fruit
+铁       iron
+橡胶     rubber
+鸦片     opium
+烟草     tobacco
+羊毛     wool
+鱼       fish
+原木     timber
+
+-----------------------------------------------------------------------------------
+
+允许奴隶制
+command = { type = set_slavery value = yes }
+
+
+capitalists（资本家）储蓄增加100
+command = { type = pop_cash which = capitalists value = 100 }
+
+
+人种变化：
+
+所有Japanese（日本）人变成slaves（奴隶）
+command = {type = convert_pop_type which = Japanese value = slaves  }
+
+所有aristocrats（贵族）变成capitalists（资本家）
+command = {type = convert_pop_type which = aristocrats value = capitalists }
+
+
+人种名字
+-----------------
+贵族aristocrats
+资本家capitalists
+-----------------
+军官officers
+牧师clergymen
+职员clerks
+技工craftsmen
+-----------------
+士兵soldiers
+农民farmers
+工人labourers
+-----------------
+奴隶slaves
+-----------------
+
+
+增/减少主流民族
+
+把manchu（满）族增加为本国主流民族
+command = { type = add_countryculture which = manchu }
+
+把manchu（满）族从本国主流民族中去除
+command = { type = remove_countryculture which = manchu }
+
+民族代号在...\config\world_names.csv       Ctrl+F 搜索要找的民族
+
+
+
+增加/减少人口
+
+增加1个单位的beifaren（北方）人到1554省份区（北京）
+command = { type = add_pop which = beifaren value = 1 where = 1554 }
+
+注：1个单位的人口即为10万人，可以减少它为0.1 一万人或0.01 一千人
+
+
+
+全国人民斗争性-10
+command = {type = pop_militancy which = 100 value = -10 }
+
+全国人民觉醒度-10
+command = { type = pop_consciousness which = 100 value = -10 }
+
+
+注：当which = 100时即为全国人一同改变，可以改为某一部分人如which = capitalists，资本家。人种名字上边有述
+
+---------------------------------------------------------------------------------------------------
+
+
+某工厂增产100%
+
+
+飞机            command = { type = production_modifier which = aeroplane_factory value = 100 } 
+坦克                command = { type = production_modifier which = barrel_factory value = 100 } 
+汽车                command = { type = production_modifier which = automobile_factory value = 100 }
+电话                command = { type = production_modifier which = telephone_factory value = 100 }
+电器配件                 command = { type = production_modifier which = electric_gear_factory value = 100 }
+炼油                command = { type = production_modifier which = fuel_refinery value = 100 }
+
+轮船                command = { type = production_modifier which = steamer_shipyard value = 100 }
+炼铁                command = { type = production_modifier which = steel_factory value = 100 }
+大炮                command = { type = production_modifier which = artillery_factory value = 100 }
+轻武器                command = { type = production_modifier which = small_arms_factory value = 100 }
+炸药                command = { type = production_modifier which = explosives_factory value = 100 }
+军火                command = { type = production_modifier which = ammunition_factory value = 100 }
+罐头                command = { type = production_modifier which = canned_food_factory value = 100 }
+机械配件         command = { type = production_modifier which = machine_parts_factory value = 100 }
+
+木材                command = { type = production_modifier which = lumber_mill value = 100 }
+水泥                command = { type = production_modifier which = cement_factory value = 100 }
+高级衣服                command = { type = production_modifier which = luxury_clothes_factory value = 100 }
+高级家具                  command = { type = production_modifier which = luxury_furniture_factory value = 100 }
+
+帆船                command = { type = production_modifier which = clipper_shipyard value = 100 }
+家具                command = { type = production_modifier which = furniture_factory value = 100 }
+衣服                command = { type = production_modifier which = regular_clothes_factory value = 100 }
+染料                command = { type = production_modifier which = dye_factory value = 100 }
+酿酒                command = { type = production_modifier which = liquor_distillery value = 100 }
+葡萄酒                command = { type = production_modifier which = winery value = 100 }
+织布                command = { type = production_modifier which = fabric_factory value = 100 }
+玻璃                command = { type = production_modifier which = glass_factory value = 100 }
+肥料                command = { type = production_modifier which = fertilizer_factory value = 100 }
+
+
