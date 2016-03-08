@@ -139,7 +139,7 @@ void load_governments ()	//加载政体
 		if ( str [ 0 ] == '#' )	//跳过注释
 		{
 			char eat [ 1000 ];
-			ideologies_input.getline ( eat , 1000 );
+			governments_input.getline ( eat , 1000 );
 			continue;
 		}
 		government gov ( str );
@@ -241,7 +241,7 @@ void show_governments ()	//打印政体
 {
 	for ( auto &i : governmet_vector )
 	{
-		cout << i.get_name () << endl;
+		cout << i.get_name () << endl << endl << endl;
 		for ( auto &j : i.get_properties () )
 		{
 			cout << j.first->get_name () << "=" << bool_to_ok ( j.second ) << endl;
@@ -249,9 +249,16 @@ void show_governments ()	//打印政体
 		cout << endl;
 		cout << "election=" << bool_to_ok ( i.get_election () ) << endl;
 		cout << "appoint_ruling_party=" << bool_to_ok ( i.get_appoint_ruling_party () ) << endl;
-		cout << "duration=" << i.get_duration () << endl;
+		if ( i.get_election () )
+		{
+			cout << "duration=" << i.get_duration () << endl;
+		}
 		cout << "flagType=" << ft_to_str ( i.get_flag_type () ) << endl;
-		cout << endl << endl;
+		for ( int k = 0; k < 50; k++ )
+		{
+			cout << '*';
+		}
+		cout << endl;
 	}
 }
 
