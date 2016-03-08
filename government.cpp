@@ -1,11 +1,20 @@
 //government.cpp
 //政体
 
+#include<iostream>
+#include<fstream>
 #include"government.h"
 #include"ideologies_group.h"
 #include"ideology.h"
 
-extern vector<ideologies_gruop> ideologies_gruop_vector;
+using namespace std;
+
+extern vector<ideologies_gruop> ideologies_gruop_vector;	//储存政体
+extern ofstream governments_output;
+
+extern bool is_in_government ( const string gov_name );	//判断政体是否存在
+extern string bool_to_ok ( const bool flag );	//将bool类型转换成bool"yes","no"
+extern string ft_to_str ( flagType ft );	//将flagType类型转换成字符串类型
 
 government::government ( const string name )
 {
@@ -38,7 +47,8 @@ void government::set_property ( const string id_name , bool ok )	//设置意识形态
 	}
 	else
 	{
-		throw id_name;
+		cerr << "“" << id_name << "”不存在！" << endl;
+		return;
 	}
 }
 
@@ -90,4 +100,32 @@ flagType government::get_flag_type ()	//获得旗帜风格
 vector<pair<ideology* , bool>> government::get_properties ()	//获得意识形态是否允许
 {
 	return properties;
+}
+
+void government::save ()	//保存到文件
+{
+	if ( !is_in_government ( this->get_name () ) )
+	{
+		governments_output << endl << endl << endl;
+		governments_output << this->name << "  =" << endl;
+		governments_output << "{" << endl;
+		for ( auto &i : this->properties )
+		{
+			governments_output << "\t" << i.first->get_name () << " = " << bool_to_ok ( i.second ) << endl;
+		}
+		governments_output << endl;
+		governments_output << "\telection = " << bool_to_ok ( this->get_election () ) << endl;
+		if ( this->get_election () )
+		{
+			governments_output << "\tduration = " << this->get_duration () << endl;
+		}
+		governments_output << "\tappoint_ruling_party = " << bool_to_ok ( this->get_appoint_ruling_party () ) << endl;
+		governments_output << "\tflagType = " << ft_to_str ( this->get_flag_type () ) << endl;
+		governments_output << "}" << endl;
+	}
+	else
+	{
+		cerr << "“" << this->name << "”已经存在！" << endl;
+		return;
+	}
 }

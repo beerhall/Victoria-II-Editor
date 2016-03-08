@@ -34,6 +34,7 @@ public:
 	bool get_appoint_ruling_party ();	//获得是否允许指定执政党
 	flagType get_flag_type ();	//获得旗帜风格
 	vector<pair<ideology* , bool>> get_properties ();	//获得意识形态是否允许
+	void save ();	//保存到文件
 private:
 	string name;	//名字
 	short duration;	//选举间隔（月）
