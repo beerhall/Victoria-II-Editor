@@ -1,5 +1,5 @@
 //Victoria II Editor
-//Ô´.cpp
+//æº.cpp
 
 #include<iostream>
 #include<fstream>
@@ -16,49 +16,49 @@ ofstream ideologies_output ( ".\\common\\ideologies.txt" , ios::app );
 ifstream governments_input ( ".\\common\\governments.txt" );
 ifstream ideologies_input ( ".\\common\\ideologies.txt" );
 
-vector<ideologies_gruop> ideologies_gruop_vector;	//´¢´æÒâÊ¶ĞÎÌ¬×é
-vector<government> governmet_vector;	//´¢´æÕşÌå
+vector<ideologies_gruop> ideologies_gruop_vector;	//å‚¨å­˜æ„è¯†å½¢æ€ç»„
+vector<government> governmet_vector;	//å‚¨å­˜æ”¿ä½“
 
-void excute ( const string& cmd );	//Ö´ĞĞÃüÁî
+void excute ( const string& cmd );	//æ‰§è¡Œå‘½ä»¤
 
-void load ();	//¼ÓÔØÎÄ¼ş
-void show ();	//´òÓ¡
-void insert ();	//²åÈë
+void load ();	//åŠ è½½æ–‡ä»¶
+void show ();	//æ‰“å°
+void insert ();	//æ’å…¥
 
-void load_ideologies_gruop ();	//¼ÓÔØÒâÊ¶ĞÎÌ¬×é
-void load_governments ();	//¼ÓÔØÕşÌå
+void load_ideologies_gruop ();	//åŠ è½½æ„è¯†å½¢æ€ç»„
+void load_governments ();	//åŠ è½½æ”¿ä½“
 
-void show_ideologies_gruop ();	//´òÓ¡ÒâÊ¶ĞÎÌ¬×é
-void show_ideologies ();	//´òÓ¡ÒâÊ¶ĞÎÌ¬
-void show_governments ();	//´òÓ¡ÕşÌå
+void show_ideologies_gruop ();	//æ‰“å°æ„è¯†å½¢æ€ç»„
+void show_ideologies ();	//æ‰“å°æ„è¯†å½¢æ€
+void show_governments ();	//æ‰“å°æ”¿ä½“
 
-void insert_government ();	//Ìí¼ÓÕşÌå
+void insert_government ();	//æ·»åŠ æ”¿ä½“
 
-string trim ( string s );	//È¥³ı¿Õ¸ñ
-bool is_in_ideology ( const string id_name );	//ÅĞ¶ÏÒâÊ¶ĞÎÌ¬ÊÇ·ñ´æÔÚ
-bool ok_to_bool ( const string ok );	//½«"yes","no"×ª»»³ÉboolÀàĞÍ
-string bool_to_ok ( const bool flag );	//½«boolÀàĞÍ×ª»»³Ébool"yes","no"
-flagType str_to_ft ( const string str );	//½«×Ö·û´®×ª»»³ÉflagTypeÀàĞÍ
-string ft_to_str ( flagType ft );	//½«flagTypeÀàĞÍ×ª»»³É×Ö·û´®ÀàĞÍ
+string trim ( string s );	//å»é™¤ç©ºæ ¼
+bool is_in_ideology ( const string id_name );	//åˆ¤æ–­æ„è¯†å½¢æ€æ˜¯å¦å­˜åœ¨
+bool ok_to_bool ( const string ok );	//å°†"yes","no"è½¬æ¢æˆboolç±»å‹
+string bool_to_ok ( const bool flag );	//å°†boolç±»å‹è½¬æ¢æˆbool"yes","no"
+flagType str_to_ft ( const string str );	//å°†å­—ç¬¦ä¸²è½¬æ¢æˆflagTypeç±»å‹
+string ft_to_str ( flagType ft );	//å°†flagTypeç±»å‹è½¬æ¢æˆå­—ç¬¦ä¸²ç±»å‹
 
 int main ( void )
 {
-	string cmd;	//ÃüÁî
-	load ();	//¼ÓÔØÎÄ¼ş
+	string cmd;	//å‘½ä»¤
+	load ();	//åŠ è½½æ–‡ä»¶
 	while ( 1 )
 	{
 		cout << "Victoria II Editor >  ";
 		cin >> cmd;
-		excute ( cmd );	//Ö´ĞĞÃüÁî
+		excute ( cmd );	//æ‰§è¡Œå‘½ä»¤
 	}
 	system ( "pause" );
 	return 0;
 }
 
 
-void excute ( const string& cmd )	//Ö´ĞĞÃüÁî
+void excute ( const string& cmd )	//æ‰§è¡Œå‘½ä»¤
 {
-	if ( cmd == "insert" )	//Ìí¼ÓÕşÌå
+	if ( cmd == "insert" )	//æ·»åŠ æ”¿ä½“
 	{
 		insert ();
 	}
@@ -66,32 +66,32 @@ void excute ( const string& cmd )	//Ö´ĞĞÃüÁî
 	{
 		show ();
 	}
-	else if ( cmd == "quit" )	//ÍË³ö
+	else if ( cmd == "quit" )	//é€€å‡º
 	{
 		exit ( 0 );
 	}
-	else	//²»ÄÜÊ¶±ğ
+	else	//ä¸èƒ½è¯†åˆ«
 	{
-		cerr << "²»ÄÜÊ¶±ğ¡±" << cmd << "¡°£¬ÇëÖØĞÂÊäÈë£¡" << endl;
+		cerr << "ä¸èƒ½è¯†åˆ«â€" << cmd << "â€œï¼Œè¯·é‡æ–°è¾“å…¥ï¼" << endl;
 	}
 }
 
-void load ()	//¼ÓÔØÎÄ¼ş
+void load ()	//åŠ è½½æ–‡ä»¶
 {
 	load_ideologies_gruop ();
 	load_governments ();
 }
 
-void load_ideologies_gruop ()	//¼ÓÔØÒâÊ¶ĞÎÌ¬×é
+void load_ideologies_gruop ()	//åŠ è½½æ„è¯†å½¢æ€ç»„
 {
-	//ÌáÊ¾ĞÅÏ¢
-	cout << "ÕıÔÚ¼ÓÔØÒâÊ¶ĞÎÌ¬..." << endl;
-	unsigned brace = 0;	//´óÀ¨ºÅ¡®{¡¯µÄÊıÁ¿£¬Óöµ½¡®}¡¯¼õÒ»
+	//æç¤ºä¿¡æ¯
+	cout << "æ­£åœ¨åŠ è½½æ„è¯†å½¢æ€..." << endl;
+	unsigned brace = 0;	//å¤§æ‹¬å·â€˜{â€™çš„æ•°é‡ï¼Œé‡åˆ°â€˜}â€™å‡ä¸€
 	string str;
 	string text;
 	while ( ideologies_input >> str )
 	{
-		if ( str [ 0 ] == '#' )	//Ìø¹ı×¢ÊÍ
+		if ( str [ 0 ] == '#' )	//è·³è¿‡æ³¨é‡Š
 		{
 			char eat [ 1000 ];
 			ideologies_input.getline ( eat , 1000 );
@@ -126,24 +126,24 @@ void load_ideologies_gruop ()	//¼ÓÔØÒâÊ¶ĞÎÌ¬×é
 			}
 		}
 	}
-	cout << "¼ÓÔØÒâÊ¶ĞÎÌ¬Íê³É" << endl;
+	cout << "åŠ è½½æ„è¯†å½¢æ€å®Œæˆ" << endl;
 }
 
-void load_governments ()	//¼ÓÔØÕşÌå
+void load_governments ()	//åŠ è½½æ”¿ä½“
 {
-	cout << "ÕıÔÚ¼ÓÔØÕşÌå..." << endl;
+	cout << "æ­£åœ¨åŠ è½½æ”¿ä½“..." << endl;
 	string str;
 	while ( governments_input >> str )
 	{
 		str = trim ( str );
-		if ( str [ 0 ] == '#' )	//Ìø¹ı×¢ÊÍ
+		if ( str [ 0 ] == '#' )	//è·³è¿‡æ³¨é‡Š
 		{
 			char eat [ 1000 ];
 			governments_input.getline ( eat , 1000 );
 			continue;
 		}
 		government gov ( str );
-		for ( char ch = governments_input.get (); ch != '{'; ch = governments_input.get () );	//Ìø¹ı
+		for ( char ch = governments_input.get (); ch != '{'; ch = governments_input.get () );	//è·³è¿‡
 		string  property , value , equal;
 		char line_c [ 1000 ];
 		while ( governments_input.getline ( line_c , 1000 ) )
@@ -155,7 +155,7 @@ void load_governments ()	//¼ÓÔØÕşÌå
 			{
 				continue;
 			}
-			if ( line [ 0 ] == '#' )	//Ìø¹ı×¢ÊÍ
+			if ( line [ 0 ] == '#' )	//è·³è¿‡æ³¨é‡Š
 			{
 				char eat [ 1000 ];
 				ideologies_input.getline ( eat , 1000 );
@@ -192,10 +192,10 @@ void load_governments ()	//¼ÓÔØÕşÌå
 		}
 		governmet_vector.push_back ( gov );
 	}
-	cout << "¼ÓÔØÕşÌåÍê³É" << endl;
+	cout << "åŠ è½½æ”¿ä½“å®Œæˆ" << endl;
 }
 
-void show ()	//´òÓ¡
+void show ()	//æ‰“å°
 {
 	string str;
 	cin >> str;
@@ -213,11 +213,11 @@ void show ()	//´òÓ¡
 	}
 	else
 	{
-		cerr << "²»ÄÜÊ¶±ğ¡±" << str << "¡°£¬ÇëÖØĞÂÊäÈë£¡" << endl;
+		cerr << "ä¸èƒ½è¯†åˆ«â€" << str << "â€œï¼Œè¯·é‡æ–°è¾“å…¥ï¼" << endl;
 	}
 }
 
-void show_ideologies_gruop ()	//´òÓ¡ÒâÊ¶ĞÎÌ¬×é
+void show_ideologies_gruop ()	//æ‰“å°æ„è¯†å½¢æ€ç»„
 {
 	for ( auto &i : ideologies_gruop_vector )
 	{
@@ -225,7 +225,7 @@ void show_ideologies_gruop ()	//´òÓ¡ÒâÊ¶ĞÎÌ¬×é
 	}
 }
 
-void show_ideologies ()	//´òÓ¡ÒâÊ¶ĞÎÌ¬
+void show_ideologies ()	//æ‰“å°æ„è¯†å½¢æ€
 {
 	for ( auto &i : ideologies_gruop_vector )
 	{
@@ -237,7 +237,7 @@ void show_ideologies ()	//´òÓ¡ÒâÊ¶ĞÎÌ¬
 	}
 }
 
-void show_governments ()	//´òÓ¡ÕşÌå
+void show_governments ()	//æ‰“å°æ”¿ä½“
 {
 	for ( auto &i : governmet_vector )
 	{
@@ -262,7 +262,7 @@ void show_governments ()	//´òÓ¡ÕşÌå
 	}
 }
 
-void insert ()	//²åÈë
+void insert ()	//æ’å…¥
 {
 	string str;
 	cin >> str;
@@ -272,11 +272,11 @@ void insert ()	//²åÈë
 	}
 	else
 	{
-		cerr << "²»ÄÜÊ¶±ğ¡±" << str << "¡°£¬ÇëÖØĞÂÊäÈë£¡" << endl;
+		cerr << "ä¸èƒ½è¯†åˆ«â€" << str << "â€œï¼Œè¯·é‡æ–°è¾“å…¥ï¼" << endl;
 	}
 }
 
-void insert_government ()	//Ìí¼ÓÕşÌå
+void insert_government ()	//æ·»åŠ æ”¿ä½“
 {
 	try
 	{
@@ -286,15 +286,15 @@ void insert_government ()	//Ìí¼ÓÕşÌå
 	}
 	catch ( string name )
 	{
-		cerr << "¡±" << name << "¡°ÊÇ²»´æÔÚµÄÒâÊ¶ĞÎÌ¬£¡" << endl;
+		cerr << "â€" << name << "â€œæ˜¯ä¸å­˜åœ¨çš„æ„è¯†å½¢æ€ï¼" << endl;
 	}
 }
 
-string trim ( string s )	//È¥³ı¿Õ¸ñ
+string trim ( string s )	//å»é™¤ç©ºæ ¼
 {
 	int i = 0;
 	int len = s.length ();
-	while ( isspace ( s [ i ] ) && i < len )//¿ªÍ·´¦Îª¿Õ¸ñ»òÕßTab£¬ÔòÌø¹ı
+	while ( isspace ( s [ i ] ) && i < len )//å¼€å¤´å¤„ä¸ºç©ºæ ¼æˆ–è€…Tabï¼Œåˆ™è·³è¿‡
 	{
 		i++;
 	}
@@ -304,7 +304,7 @@ string trim ( string s )	//È¥³ı¿Õ¸ñ
 		return s;
 	}
 	i = s.size () - 1;
-	while ( isspace ( s [ i ] ) && i>0 )////½áÎ²´¦Îª¿Õ¸ñ»òÕßTab£¬ÔòÌø¹ı
+	while ( isspace ( s [ i ] ) && i>0 )////ç»“å°¾å¤„ä¸ºç©ºæ ¼æˆ–è€…Tabï¼Œåˆ™è·³è¿‡
 	{
 		i--;
 	}
@@ -312,7 +312,7 @@ string trim ( string s )	//È¥³ı¿Õ¸ñ
 	return s;
 }
 
-bool is_in_ideology ( const string id_name )	//ÅĞ¶ÏÒâÊ¶ĞÎÌ¬ÊÇ·ñ´æÔÚ
+bool is_in_ideology ( const string id_name )	//åˆ¤æ–­æ„è¯†å½¢æ€æ˜¯å¦å­˜åœ¨
 {
 	bool id_exists = false;
 	for ( auto &i : ideologies_gruop_vector )
@@ -329,7 +329,7 @@ bool is_in_ideology ( const string id_name )	//ÅĞ¶ÏÒâÊ¶ĞÎÌ¬ÊÇ·ñ´æÔÚ
 	return id_exists;
 }
 
-bool ok_to_bool ( const string ok )	//½«"yes","no"×ª»»³ÉboolÀàĞÍ
+bool ok_to_bool ( const string ok )	//å°†"yes","no"è½¬æ¢æˆboolç±»å‹
 {
 	if ( ok == "yes" )
 	{
@@ -341,12 +341,12 @@ bool ok_to_bool ( const string ok )	//½«"yes","no"×ª»»³ÉboolÀàĞÍ
 	}
 	else
 	{
-		cout << "²»¿ÉÔ¤ÁÏµÄok->bool×ª»»´íÎó" << endl;
+		cout << "ä¸å¯é¢„æ–™çš„ok->boolè½¬æ¢é”™è¯¯" << endl;
 		exit ( 0 );
 	}
 }
 
-string bool_to_ok ( const bool flag )	//½«boolÀàĞÍ×ª»»³Ébool"yes","no"
+string bool_to_ok ( const bool flag )	//å°†boolç±»å‹è½¬æ¢æˆbool"yes","no"
 {
 	if ( flag )
 	{
@@ -355,7 +355,7 @@ string bool_to_ok ( const bool flag )	//½«boolÀàĞÍ×ª»»³Ébool"yes","no"
 	return string ( "no" );
 }
 
-flagType str_to_ft ( const string str )	//½«×Ö·û´®×ª»»³ÉflagTypeÀàĞÍ
+flagType str_to_ft ( const string str )	//å°†å­—ç¬¦ä¸²è½¬æ¢æˆflagTypeç±»å‹
 {
 	if ( str == "communist" )
 	{
@@ -375,29 +375,29 @@ flagType str_to_ft ( const string str )	//½«×Ö·û´®×ª»»³ÉflagTypeÀàĞÍ
 	}
 	else
 	{
-		cerr << "flagTypeÀàĞÍ×ª»»´íÎó£¡" << endl;
+		cerr << "flagTypeç±»å‹è½¬æ¢é”™è¯¯ï¼" << endl;
 		exit ( 1 );
 	}
 }
 
-string ft_to_str ( flagType ft )	//½«flagTypeÀàĞÍ×ª»»³É×Ö·û´®ÀàĞÍ
+string ft_to_str ( flagType ft )	//å°†flagTypeç±»å‹è½¬æ¢æˆå­—ç¬¦ä¸²ç±»å‹
 {
 	switch ( ft )
 	{
-		case 	communist:	//¹²²úÖ÷Òå
+		case 	communist:	//å…±äº§ä¸»ä¹‰
 			return string ( "communist" );
 			break;
-		case	republic:	//¹²ºÍ¹ú
+		case	republic:	//å…±å’Œå›½
 			return string ( "republic" );
 			break;
-		case	fascist:	//·¨Î÷Ë¹
+		case	fascist:	//æ³•è¥¿æ–¯
 			return string ( "fascist" );
 			break;
-		case	monarchy://¾ıÖ÷ÖÆ
+		case	monarchy://å›ä¸»åˆ¶
 			return string ( "monarchy" );
 			break;
 		default:
-			cerr << "flagTypeÀàĞÍ×ª»»Ê§°Ü" << endl;
+			cerr << "flagTypeç±»å‹è½¬æ¢å¤±è´¥" << endl;
 			exit ( 1 );
 	}
 }
