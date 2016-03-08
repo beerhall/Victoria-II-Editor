@@ -9,6 +9,6 @@
 - show ideologies; 显示意识形态
 - show ideologies_gruop; 显示意识形态组
 
-- insert government 政体属性，用空格隔开 value 之前属性对应的值，用空格隔开;
+- insert government 政体属性，用空格隔开 value 之前属性对应的值，用空格隔开;  新建政体
 
 - quit;  退出
