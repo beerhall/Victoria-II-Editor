@@ -11,8 +11,10 @@
 - show governments;  显示政体
 - show ideologies; 显示意识形态
 - show ideologies_gruop; 显示意识形态组
+- show countries; 显示国家简称和全名
 
 - insert government 政体属性，用空格隔开 value 之前属性对应的值，用空格隔开;  新建政体
+- insert country 国家简称 国家全名; 新建国家
 
 - quit;  退出
 
