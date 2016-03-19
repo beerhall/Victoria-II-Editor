@@ -3,50 +3,17 @@
 维多利亚2的游戏编辑器
 如果你对我们的项目有兴趣，欢迎加入我们的QQ群469684234
 
-请放置到游戏根目录下运行！
+请在游戏根目录下建立一个文件夹editor,再建立以下文件夹
 
-控制台的语法为SQL风格
+- editor/xml/common/countries
+- editor/xml/decisions
+- editor/xml/events
+- editor/xml/history/countries
+- editor/xml/history/diplomacy
+- editor/xml/history/pops
+- editor/xml/history/provinces
+- editor/xml/history/units
+- editor/xml/history/wars
 
-## 当前计划 ##
-- 将P社数据格式转变为XML格式
-- 用C++解析XML，将文档对象化
-- 用图形界面调用C++的函数接口
-- C++操作XML文件
-- XML文件转换成P社数据格式
-
-## 现在可以公开的情报 ##
-- show governments;  显示政体
-- show ideologies; 显示意识形态
-- show ideologies_gruop; 显示意识形态组
-- show countries; 显示国家简称和全名
-
-- insert government 政体属性，用空格隔开 value 之前属性对应的值，用空格隔开;  新建政体
-- insert country 国家简称 国家全名; 新建国家
-
-- quit;  退出
-
-## 任务分配 ##
-@Yakuky 先负责写工厂类，
-
-@练习巡洋舰 鹿岛 负责写决议类,
-
-@乙指 负责写兵种，将领类，
-
-@巴伐利亚啤酒馆 负责写国家颜色类
-
-包括与之相关的类！
-
-在新建相关的类之前，请确认与其他人没有重复
-
-每个类的load，show，insert方法，还有相应的文件流和储存对象的vector容器都声明在头文件里，定义在相应的cpp文件里。
-
-请参照git上readme文件里的要求的代码规范！
-
-在解析文件的过程中，大括号{}一律解析为对象，“属性 = 值”的语句一律解析为成员变量或对象，重复的相同类型对象或变量一律解析为vector数组
-
-具体请参照git上的government类
-
-## 关于代码规范 ##
-- 每一个文件、每一个重要的变量、每一个函数都要注释表明其作用！
-- 文件、变量和函数的命名要规范，单词间使用下划线连接，可以用游戏文件已有的内容命名的就以游戏文件内容命名
-- 对于一些可能难于读懂的代码，尽量加注释
+- 将生成的文件放到editor文件夹下运行
+- 第一次运行需要加载！
