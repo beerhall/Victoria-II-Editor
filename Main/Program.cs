@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Victoria2.Domain.Comm;
 using System.IO;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace Victoria2.Main
 {
@@ -14,42 +15,12 @@ namespace Victoria2.Main
     {
         static void Main(string[] args)
         {
-
-            translate_to_xml("units");    //通过测试
-            translate_to_xml("common");  //通过测试
-            translate_to_xml("common\\countries"); //通过测试
-            translate_to_xml("decisions");    //通过测试
-            translate_to_xml("events");   //通过测试
-            translate_to_xml("inventions");    //通过测试
-            //translate_to_xml("map");    //初版无测试计划
-            //translate_to_xml("news");    //初版无测试计划
-            translate_to_xml("history\\countries"); //通过测试
-            translate_to_xml("history\\diplomacy"); //通过测试
-            translate_to_xml_double_folder("history\\pops");  //通过测试
-            translate_to_xml_double_folder("history\\provinces"); //通过测试
-            translate_to_xml("history\\units"); //通过测试
-            translate_to_xml_double_folder("history\\units");   //通过测试
-            translate_to_xml("history\\wars");  //通过测试
-
-            /*
-            translate_to_txt("units");    //通过测试
-            translate_to_txt("common");   //通过测试
-            translate_to_txt("common\\countries");   //通过测试
-            translate_to_txt("decisions");   //通过测试
-            translate_to_txt("events");   //通过测试
-            //translate_to_txt("inventions");   //测试失败：奇异的编码
-            //translate_to_txt("map");    //初版无测试计划
-            //translate_to_txt("news");   //初版无测试计划
-            translate_to_xml("history\\countries"); //通过测试
-            translate_to_txt("history\\diplomacy"); //通过测试
-            translate_to_txt_double_folder("history\\pops");  //通过测试
-            translate_to_txt_double_folder("history\\provinces");    //通过测试
-            translate_to_txt("history\\units"); //通过测试
-            translate_to_txt_double_folder("history\\units");   //通过测试
-            translate_to_txt("history\\wars");  //通过测试
-            */
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
         }
-        static void translate_to_xml(string path)
+
+        static public void translate_to_xml(string path)
         {
             string filepath = "..\\" + path;
             string[] filenames = Directory.GetFiles(filepath);
@@ -58,6 +29,10 @@ namespace Victoria2.Main
                 string fname = fn.Substring(fn.LastIndexOf("\\"));
                 if (Regex.IsMatch(fname, @"^.+\.(t|T)(X|x)(T|t)$"))
                 {
+                    if (fname.Contains("graphicalculturetype"))
+                    {
+                        continue;
+                    }
                     System.Xml.XmlDocument doc;
                     doc = XmlDoc.CreateModel(@"..\\" + path + "\\" + fname);
                     StringBuilder sb = new StringBuilder();
@@ -74,7 +49,7 @@ namespace Victoria2.Main
             }
         }
 
-        static void translate_to_xml_double_folder(string path)
+        static public void translate_to_xml_double_folder(string path)
         {
             string folderpath = "..\\" + path;
             string[] foldernames = Directory.GetDirectories(folderpath);
@@ -111,7 +86,7 @@ namespace Victoria2.Main
             }
         }
 
-        static void translate_to_txt(string path)
+        static public void translate_to_txt(string path)
         {
             string filepath = ".\\xml\\" + path;
             string[] filenames = Directory.GetFiles(filepath);
@@ -120,6 +95,10 @@ namespace Victoria2.Main
                 string fname = fn.Substring(fn.LastIndexOf("\\"));
                 if (Regex.IsMatch(fname, @"^.+\.xml$"))
                 {
+                    if (fname.Contains("graphicalculturetype"))
+                    {
+                        continue;
+                    }
                     XmlDocument doc = new XmlDocument();
                     doc.Load(fn);
                     FileStream fs = File.Open("..\\" + path + fname.Replace(".xml", ""), FileMode.Create);
@@ -130,7 +109,7 @@ namespace Victoria2.Main
             }
         }
 
-        static void translate_to_txt_double_folder(string path)
+        static public void translate_to_txt_double_folder(string path)
         {
             string folderpath = ".\\xml\\" + path;
             string[] foldernames = Directory.GetDirectories(folderpath);
@@ -154,6 +133,27 @@ namespace Victoria2.Main
                         }
                     }
                 }
+            }
+        }
+
+        static public bool isDate(string date)
+        {
+            if (Regex.IsMatch(date, @"(\d)+\.(\d)+\.(\d)+"))
+            {
+                date = date.Replace('.', '-');
+                DateTime dt;
+                if (DateTime.TryParse(date, out dt))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
     }
