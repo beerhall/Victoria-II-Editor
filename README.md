@@ -14,6 +14,7 @@
 - editor/xml/history/provinces
 - editor/xml/history/units
 - editor/xml/history/wars
+- editor/xml/units
 
 - 将生成的文件放到editor文件夹下运行
 - 第一次运行需要加载！
