@@ -415,9 +415,6 @@ namespace Victoria2.Main
             progressBarLoad.Value = 100;
             progressBarLoad.Visible = false;
             MessageBox.Show("载入成功!");
-            MainForm mf = new MainForm();
-            mf.Show();
-            this.Close();
         }
 
         private void ToolStripMenuItemSave_Click(object sender, EventArgs e)
