@@ -15,6 +15,7 @@
 - editor/xml/history/units
 - editor/xml/history/wars
 - editor/xml/units
+- editor/xml/technologies
 
 - 将生成的文件放到editor文件夹下运行
 - 第一次运行需要加载！
