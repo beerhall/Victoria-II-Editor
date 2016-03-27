@@ -49,6 +49,10 @@ namespace Victoria2.Main
 
         private void listBoxSocialReforms_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxSocialReforms.SelectedIndex==-1)
+            {
+                return;
+            }
             listBoxSocialReformsValues.Items.Clear();
             foreach (XmlNode node in issues.ChildNodes[1].SelectSingleNode("social_reforms").SelectSingleNode(listBoxSocialReforms.SelectedItem.ToString()))
             {

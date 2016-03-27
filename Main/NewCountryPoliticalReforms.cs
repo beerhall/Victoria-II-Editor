@@ -51,6 +51,10 @@ namespace Victoria2.Main
 
         private void listBoxPoliticalReforms_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxPoliticalReforms.SelectedIndex == -1)
+            {
+                return;
+            }
             listBoxPoliticalReformsValues.Items.Clear();
             foreach (XmlNode node in issues.ChildNodes[1].SelectSingleNode("political_reforms").SelectSingleNode(listBoxPoliticalReforms.SelectedItem.ToString()))
             {

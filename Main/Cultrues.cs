@@ -143,5 +143,10 @@ namespace Victoria2.Main
             this.Close();
         }
 
+        private void checkedListBoxCultrues_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

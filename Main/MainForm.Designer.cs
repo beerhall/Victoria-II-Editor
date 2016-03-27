@@ -104,15 +104,30 @@
             this.ToolStripMenuItemLoad = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSave = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPageGovernments = new System.Windows.Forms.TabPage();
+            this.listBoxGovernments = new System.Windows.Forms.ListBox();
+            this.checkedListBoxIdeologies = new System.Windows.Forms.CheckedListBox();
+            this.checkBoxElection = new System.Windows.Forms.CheckBox();
+            this.checkBoxAppointRulingParty = new System.Windows.Forms.CheckBox();
+            this.numericUpDownDuration = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.comboBoxFlagType = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.buttonNewGovernment = new System.Windows.Forms.Button();
+            this.buttonSaveGovernments = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageCountries.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.tabPageGovernments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDuration)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControl.Controls.Add(this.tabPageCountries);
+            this.tabControl.Controls.Add(this.tabPageGovernments);
             this.tabControl.Controls.Add(this.tabPageEvents);
             this.tabControl.Controls.Add(this.tabPageDecisions);
             this.tabControl.Location = new System.Drawing.Point(12, 35);
@@ -201,7 +216,7 @@
             // 
             // progressBarLoad
             // 
-            this.progressBarLoad.Location = new System.Drawing.Point(206, 281);
+            this.progressBarLoad.Location = new System.Drawing.Point(401, 252);
             this.progressBarLoad.Maximum = 1000;
             this.progressBarLoad.Name = "progressBarLoad";
             this.progressBarLoad.Size = new System.Drawing.Size(400, 28);
@@ -860,6 +875,136 @@
             this.ToolStripMenuItemExit.Text = "退出";
             this.ToolStripMenuItemExit.Click += new System.EventHandler(this.ToolStripMenuItemExit_Click);
             // 
+            // tabPageGovernments
+            // 
+            this.tabPageGovernments.Controls.Add(this.buttonSaveGovernments);
+            this.tabPageGovernments.Controls.Add(this.buttonNewGovernment);
+            this.tabPageGovernments.Controls.Add(this.label30);
+            this.tabPageGovernments.Controls.Add(this.label28);
+            this.tabPageGovernments.Controls.Add(this.comboBoxFlagType);
+            this.tabPageGovernments.Controls.Add(this.label29);
+            this.tabPageGovernments.Controls.Add(this.numericUpDownDuration);
+            this.tabPageGovernments.Controls.Add(this.checkBoxAppointRulingParty);
+            this.tabPageGovernments.Controls.Add(this.checkBoxElection);
+            this.tabPageGovernments.Controls.Add(this.checkedListBoxIdeologies);
+            this.tabPageGovernments.Controls.Add(this.listBoxGovernments);
+            this.tabPageGovernments.Location = new System.Drawing.Point(28, 4);
+            this.tabPageGovernments.Name = "tabPageGovernments";
+            this.tabPageGovernments.Size = new System.Drawing.Size(1242, 659);
+            this.tabPageGovernments.TabIndex = 3;
+            this.tabPageGovernments.Text = "政体";
+            this.tabPageGovernments.UseVisualStyleBackColor = true;
+            // 
+            // listBoxGovernments
+            // 
+            this.listBoxGovernments.FormattingEnabled = true;
+            this.listBoxGovernments.ItemHeight = 18;
+            this.listBoxGovernments.Location = new System.Drawing.Point(20, 15);
+            this.listBoxGovernments.Name = "listBoxGovernments";
+            this.listBoxGovernments.Size = new System.Drawing.Size(422, 526);
+            this.listBoxGovernments.TabIndex = 0;
+            this.listBoxGovernments.SelectedIndexChanged += new System.EventHandler(this.listBoxGovernments_SelectedIndexChanged);
+            // 
+            // checkedListBoxIdeologies
+            // 
+            this.checkedListBoxIdeologies.CheckOnClick = true;
+            this.checkedListBoxIdeologies.FormattingEnabled = true;
+            this.checkedListBoxIdeologies.Location = new System.Drawing.Point(448, 54);
+            this.checkedListBoxIdeologies.Name = "checkedListBoxIdeologies";
+            this.checkedListBoxIdeologies.Size = new System.Drawing.Size(422, 487);
+            this.checkedListBoxIdeologies.TabIndex = 1;
+            // 
+            // checkBoxElection
+            // 
+            this.checkBoxElection.AutoSize = true;
+            this.checkBoxElection.Location = new System.Drawing.Point(925, 59);
+            this.checkBoxElection.Name = "checkBoxElection";
+            this.checkBoxElection.Size = new System.Drawing.Size(70, 22);
+            this.checkBoxElection.TabIndex = 2;
+            this.checkBoxElection.Text = "选举";
+            this.checkBoxElection.UseVisualStyleBackColor = true;
+            this.checkBoxElection.CheckedChanged += new System.EventHandler(this.checkBoxElection_CheckedChanged);
+            // 
+            // checkBoxAppointRulingParty
+            // 
+            this.checkBoxAppointRulingParty.AutoSize = true;
+            this.checkBoxAppointRulingParty.Location = new System.Drawing.Point(925, 108);
+            this.checkBoxAppointRulingParty.Name = "checkBoxAppointRulingParty";
+            this.checkBoxAppointRulingParty.Size = new System.Drawing.Size(124, 22);
+            this.checkBoxAppointRulingParty.TabIndex = 3;
+            this.checkBoxAppointRulingParty.Text = "指定执政党";
+            this.checkBoxAppointRulingParty.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownDuration
+            // 
+            this.numericUpDownDuration.Enabled = false;
+            this.numericUpDownDuration.Location = new System.Drawing.Point(925, 202);
+            this.numericUpDownDuration.Name = "numericUpDownDuration";
+            this.numericUpDownDuration.Size = new System.Drawing.Size(207, 28);
+            this.numericUpDownDuration.TabIndex = 4;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(925, 157);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(80, 18);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "选举间隔";
+            // 
+            // comboBoxFlagType
+            // 
+            this.comboBoxFlagType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFlagType.FormattingEnabled = true;
+            this.comboBoxFlagType.Items.AddRange(new object[] {
+            "默认",
+            "communist",
+            "republic",
+            "fascist",
+            "monarchy"});
+            this.comboBoxFlagType.Location = new System.Drawing.Point(925, 302);
+            this.comboBoxFlagType.Name = "comboBoxFlagType";
+            this.comboBoxFlagType.Size = new System.Drawing.Size(207, 26);
+            this.comboBoxFlagType.TabIndex = 7;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(925, 257);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(80, 18);
+            this.label28.TabIndex = 8;
+            this.label28.Text = "旗帜风格";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(448, 15);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(134, 18);
+            this.label30.TabIndex = 9;
+            this.label30.Text = "允许的意识形态";
+            // 
+            // buttonNewGovernment
+            // 
+            this.buttonNewGovernment.Location = new System.Drawing.Point(20, 547);
+            this.buttonNewGovernment.Name = "buttonNewGovernment";
+            this.buttonNewGovernment.Size = new System.Drawing.Size(117, 37);
+            this.buttonNewGovernment.TabIndex = 10;
+            this.buttonNewGovernment.Text = "新建政体";
+            this.buttonNewGovernment.UseVisualStyleBackColor = true;
+            this.buttonNewGovernment.Click += new System.EventHandler(this.buttonNewGovernment_Click);
+            // 
+            // buttonSaveGovernments
+            // 
+            this.buttonSaveGovernments.Location = new System.Drawing.Point(925, 355);
+            this.buttonSaveGovernments.Name = "buttonSaveGovernments";
+            this.buttonSaveGovernments.Size = new System.Drawing.Size(91, 36);
+            this.buttonSaveGovernments.TabIndex = 11;
+            this.buttonSaveGovernments.Text = "保存";
+            this.buttonSaveGovernments.UseVisualStyleBackColor = true;
+            this.buttonSaveGovernments.Click += new System.EventHandler(this.buttonSaveGovernments_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -875,6 +1020,9 @@
             this.tabPageCountries.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabPageGovernments.ResumeLayout(false);
+            this.tabPageGovernments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDuration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -958,6 +1106,18 @@
         private System.Windows.Forms.Button buttonCulture;
         private System.Windows.Forms.ComboBox comboBoxReligion;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TabPage tabPageGovernments;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox comboBoxFlagType;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.NumericUpDown numericUpDownDuration;
+        private System.Windows.Forms.CheckBox checkBoxAppointRulingParty;
+        private System.Windows.Forms.CheckBox checkBoxElection;
+        private System.Windows.Forms.CheckedListBox checkedListBoxIdeologies;
+        private System.Windows.Forms.ListBox listBoxGovernments;
+        private System.Windows.Forms.Button buttonSaveGovernments;
+        private System.Windows.Forms.Button buttonNewGovernment;
 
     }
 }

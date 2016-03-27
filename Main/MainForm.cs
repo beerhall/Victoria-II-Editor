@@ -19,10 +19,13 @@ namespace Victoria2.Main
         XmlDocument countries_txt_xml = new XmlDocument();
         XmlDocument ideologies_txt_xml = new XmlDocument();
         XmlDocument issues_txt_xml = new XmlDocument();
+        XmlDocument governments = new XmlDocument();
         Dictionary<string, string> countriesDic = new Dictionary<string, string>();
         Dictionary<string, string> countriesHistoryDic = new Dictionary<string, string>();
         Dictionary<string, string> provincesDic = new Dictionary<string, string>();
         Dictionary<int, string> comboIndexDic = new Dictionary<int, string>();
+        IDictionary<string, int> ideoIndexDic = new Dictionary<string, int>();
+        int index = 0;
 
         public MainForm()
         {
@@ -34,6 +37,9 @@ namespace Victoria2.Main
         {
             if (File.Exists(".\\xml\\common\\countries.txt.xml"))
             {
+                ideologies_txt_xml.Load(".\\xml\\common\\ideologies.txt.xml");
+                issues_txt_xml.Load(".\\xml\\common\\issues.txt.xml");
+                governments.Load(".\\xml\\common\\governments.txt.xml");
                 getCountriesNames();
                 getGC();
                 getProvinces();
@@ -43,8 +49,7 @@ namespace Victoria2.Main
                 getGovernments();
                 getNationalValue();
                 getTechonologies();
-                ideologies_txt_xml.Load(".\\xml\\common\\ideologies.txt.xml");
-                issues_txt_xml.Load(".\\xml\\common\\issues.txt.xml");
+                getIdeologies();
             }
         }
 
@@ -121,6 +126,20 @@ namespace Victoria2.Main
             listBoxCountries.Items.Clear();
             countriesDic.Clear();
             countriesHistoryDic.Clear();
+        }
+
+        public void countryRefresh()
+        {
+            comboBoxGovernment.Items.Clear();
+            listBoxGovernments.Items.Clear();
+            ideoIndexDic.Clear();
+            index = 0;
+            checkedListBoxIdeologies.Items.Clear();
+            getGovernments();
+            getIdeologies();
+            clearCountriesNames();
+            getCountriesNames();
+            getCountriesHistoryDic();
         }
 
         public void getCountriesNames()
@@ -415,6 +434,7 @@ namespace Victoria2.Main
             progressBarLoad.Value = 100;
             progressBarLoad.Visible = false;
             MessageBox.Show("载入成功!");
+            countryRefresh();
         }
 
         private void ToolStripMenuItemSave_Click(object sender, EventArgs e)
@@ -601,11 +621,11 @@ namespace Victoria2.Main
 
         private void getGovernments()
         {
-            XmlDocument government = new XmlDocument();
-            government.Load(".\\xml\\common\\governments.txt.xml");
-            foreach (XmlNode governmentNode in government.ChildNodes[1])
+            governments.Load(".\\xml\\common\\governments.txt.xml");
+            foreach (XmlNode governmentNode in governments.ChildNodes[1])
             {
                 comboBoxGovernment.Items.Add(governmentNode.Name);
+                listBoxGovernments.Items.Add(governmentNode.Name);
             }
         }
 
@@ -626,6 +646,20 @@ namespace Victoria2.Main
             foreach (XmlNode technologyNode in technology.ChildNodes[1].SelectSingleNode("schools"))
             {
                 comboBoxSchool.Items.Add(technologyNode.Name);
+            }
+        }
+
+        private void getIdeologies()
+        {
+            XmlDocument ideologies = new XmlDocument();
+            ideologies.Load(".\\xml\\common\\ideologies.txt.xml");
+            foreach (XmlNode node1 in ideologies.ChildNodes[1])
+            {
+                foreach (XmlNode node2 in node1)
+                {
+                    checkedListBoxIdeologies.Items.Add(node2.Name);
+                    ideoIndexDic.Add(node2.Name, index++);
+                }
             }
         }
 
@@ -668,6 +702,127 @@ namespace Victoria2.Main
             NewCountry nc = new NewCountry(this);
             //nc.MdiParent = this;
             nc.Show();
+        }
+
+        private void listBoxGovernments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (checkBoxElection.Checked)
+            {
+                numericUpDownDuration.Enabled = true;
+            }
+            else
+            {
+                numericUpDownDuration.Enabled = false;
+            }
+
+            int count = checkedListBoxIdeologies.Items.Count;
+            for (int i = 0; i < count; i++)
+            {
+                checkedListBoxIdeologies.SetItemChecked(i, false);
+            }
+
+            if (listBoxGovernments.SelectedIndex == -1)
+            {
+                return;
+            }
+            foreach (XmlNode node in governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()))
+            {
+                foreach (var ideoName in checkedListBoxIdeologies.Items)
+                {
+                    if (node.Name == ideoName.ToString())
+                    {
+                        checkedListBoxIdeologies.SetItemChecked(ideoIndexDic[node.Name], true);
+                        break;
+                    }
+                }
+            }
+
+            if (governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).SelectSingleNode("election").InnerText.ToString() == "yes")
+            {
+                checkBoxElection.Checked = true;
+            }
+            else
+            {
+                checkBoxElection.Checked = false;
+            }//appoint_ruling_party 
+
+            if (governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).SelectSingleNode("appoint_ruling_party").InnerText.ToString() == "yes")
+            {
+                checkBoxAppointRulingParty.Checked = true;
+            }
+            else
+            {
+                checkBoxAppointRulingParty.Checked = false;
+            }
+
+            if (checkBoxElection.Checked)
+            {
+                numericUpDownDuration.Enabled = true;
+                numericUpDownDuration.Value = int.Parse(Victoria2.Domain.Comm.FileHelper.Unescape(governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).SelectSingleNode("duration").InnerText.ToString()));
+            }
+            else
+            {
+                numericUpDownDuration.Value = 0;
+                numericUpDownDuration.Enabled = false;
+            }
+
+            comboBoxFlagType.Text = governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).SelectSingleNode("flagType") != null ? governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).SelectSingleNode("flagType").InnerText.ToString() : "默认";
+
+        }
+
+        private void buttonSaveGovernments_Click(object sender, EventArgs e)
+        {
+            governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).RemoveAll();
+
+            foreach (var ideos in checkedListBoxIdeologies.CheckedItems)
+            {
+                XmlElement ele = governments.CreateElement(ideos.ToString());
+                ele.InnerText = "yes";
+                governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).AppendChild(ele);
+            }
+
+            XmlElement election = governments.CreateElement("election");
+            election.InnerText = checkBoxElection.Checked ? "yes" : "no";
+            governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).AppendChild(election);
+
+            if (checkBoxElection.Checked)
+            {
+                XmlElement duration = governments.CreateElement("duration");
+                duration.InnerText = numericUpDownDuration.Value.ToString();
+                governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).AppendChild(duration);
+            }
+
+            XmlElement appoint_ruling_party = governments.CreateElement("appoint_ruling_party");
+            appoint_ruling_party.InnerText = checkBoxAppointRulingParty.Checked ? "yes" : "no";
+            governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).AppendChild(appoint_ruling_party);
+
+            if (comboBoxFlagType.Text != "默认")
+            {
+                XmlElement flagType = governments.CreateElement("flagType");
+                flagType.InnerText = comboBoxFlagType.Text;
+                governments.ChildNodes[1].SelectSingleNode(listBoxGovernments.SelectedItem.ToString()).AppendChild(flagType);
+            }
+
+            governments.Save(".\\xml\\common\\governments.txt.xml");
+            MessageBox.Show("保存成功！");
+        }
+
+        private void buttonNewGovernment_Click(object sender, EventArgs e)
+        {
+            NewGovernment ng = new NewGovernment(this);
+            ng.Show();
+        }
+
+        private void checkBoxElection_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxElection.Checked)
+            {
+                numericUpDownDuration.Enabled = true;
+            }
+            else
+            {
+                numericUpDownDuration.Enabled = false;
+            }
         }
     }
 }

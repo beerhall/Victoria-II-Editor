@@ -30,6 +30,10 @@ namespace Victoria2.Main
 
         private void listBoxIdeologies_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxIdeologies.SelectedIndex == -1)
+            {
+                return;
+            }
             numericUpDownValue.Value = int.Parse(Victoria2.Domain.Comm.FileHelper.Unescape(countryHistory.ChildNodes[1].SelectSingleNode("upper_house").SelectSingleNode(listBoxIdeologies.SelectedItem.ToString()).InnerText));
         }
 
@@ -79,9 +83,7 @@ namespace Victoria2.Main
                 countryHistory.Save(".\\xml\\history\\countries\\" + countryTagName + " - " + countryName + ".txt.xml");
             }
             //this.MdiParent = new MainForm();
-            mf.clearCountriesNames();
-            mf.getCountriesNames();
-            mf.getCountriesHistoryDic();
+            mf.countryRefresh();
             this.Close();
         }
 

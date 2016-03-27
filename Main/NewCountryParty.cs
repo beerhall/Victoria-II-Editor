@@ -135,6 +135,10 @@ namespace Victoria2.Main
 
         private void listBoxParties_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxParties.SelectedIndex == -1)
+            {
+                return;
+            }
             foreach (XmlNode node in country.ChildNodes[1].SelectNodes("party"))
             {
                 if (Victoria2.Domain.Comm.FileHelper.Unescape(node.SelectSingleNode("name").InnerText) == "\"" + listBoxParties.SelectedItem.ToString() + "\"")

@@ -41,7 +41,7 @@
             this.checkedListBoxCultrues.Name = "checkedListBoxCultrues";
             this.checkedListBoxCultrues.Size = new System.Drawing.Size(309, 510);
             this.checkedListBoxCultrues.TabIndex = 0;
-            //this.checkedListBoxCultrues.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxCultrues_SelectedIndexChanged);
+            this.checkedListBoxCultrues.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxCultrues_SelectedIndexChanged);
             // 
             // buttonConfirm
             // 
