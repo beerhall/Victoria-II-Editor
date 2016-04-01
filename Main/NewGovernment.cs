@@ -63,7 +63,7 @@ namespace Victoria2.Main
             governments.ChildNodes[1].AppendChild(node);
             governments.Save(".\\xml\\common\\governments.txt.xml");
             MessageBox.Show("保存成功！");
-            mf.countryRefresh();
+            mf.Reload();
             this.Close();
         }
 

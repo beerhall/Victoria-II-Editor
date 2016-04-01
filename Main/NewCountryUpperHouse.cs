@@ -83,7 +83,7 @@ namespace Victoria2.Main
                 countryHistory.Save(".\\xml\\history\\countries\\" + countryTagName + " - " + countryName + ".txt.xml");
             }
             //this.MdiParent = new MainForm();
-            mf.countryRefresh();
+            mf.Reload();
             this.Close();
         }
 

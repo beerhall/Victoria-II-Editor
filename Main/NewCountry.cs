@@ -31,11 +31,6 @@ namespace Victoria2.Main
             countryName = countryNamePass;
         }
 
-        private void NewCountry_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonNextStep_Click(object sender, EventArgs e)
         {
             if (!Regex.IsMatch(textBoxCountryTagName.Text, @"[A-Z][A-Z][A-Z]"))
@@ -93,10 +88,8 @@ namespace Victoria2.Main
             fs.Write(end, 0, end.Length);
             fs.Close();
 
-            NewCountryParty ncp = new NewCountryParty(textBoxCountryTagName.Text, textBoxCountryName.Text, mf);
-            ncp.Show();
-            //ncp.MdiParent = this.MdiParent;
-            this.Close();
+            NewCountryHistory nch = new NewCountryHistory ( countryTagName , this.countryName , mf );
+            this.Close ( );
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

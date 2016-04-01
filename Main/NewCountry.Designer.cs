@@ -102,7 +102,7 @@
             this.Controls.Add(this.textBoxCountryTagName);
             this.Name = "NewCountry";
             this.Text = "NewCountry";
-            this.Load += new System.EventHandler(this.NewCountry_Load);
+            //this.Load += new System.EventHandler(this.NewCountry_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

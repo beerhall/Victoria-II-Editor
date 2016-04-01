@@ -66,8 +66,6 @@
             this.labelColor = new System.Windows.Forms.Label();
             this.buttonPreviousStep = new System.Windows.Forms.Button();
             this.buttonNextStep = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxParties = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textBoxNonstateConsciousness
@@ -121,7 +119,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(24, 622);
+            this.label24.Location = new System.Drawing.Point(24, 616);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(44, 18);
             this.label24.TabIndex = 102;
@@ -131,7 +129,7 @@
             // 
             this.comboBoxSchool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSchool.FormattingEnabled = true;
-            this.comboBoxSchool.Location = new System.Drawing.Point(24, 647);
+            this.comboBoxSchool.Location = new System.Drawing.Point(24, 646);
             this.comboBoxSchool.Name = "comboBoxSchool";
             this.comboBoxSchool.Size = new System.Drawing.Size(218, 26);
             this.comboBoxSchool.TabIndex = 101;
@@ -156,7 +154,7 @@
             // 
             this.comboBoxReligion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxReligion.FormattingEnabled = true;
-            this.comboBoxReligion.Location = new System.Drawing.Point(24, 473);
+            this.comboBoxReligion.Location = new System.Drawing.Point(24, 442);
             this.comboBoxReligion.Name = "comboBoxReligion";
             this.comboBoxReligion.Size = new System.Drawing.Size(218, 26);
             this.comboBoxReligion.TabIndex = 98;
@@ -164,7 +162,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(24, 448);
+            this.label18.Location = new System.Drawing.Point(24, 412);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(53, 18);
             this.label18.TabIndex = 97;
@@ -208,7 +206,7 @@
             // 
             this.comboBoxNationalValue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNationalValue.FormattingEnabled = true;
-            this.comboBoxNationalValue.Location = new System.Drawing.Point(24, 589);
+            this.comboBoxNationalValue.Location = new System.Drawing.Point(24, 578);
             this.comboBoxNationalValue.Name = "comboBoxNationalValue";
             this.comboBoxNationalValue.Size = new System.Drawing.Size(218, 26);
             this.comboBoxNationalValue.TabIndex = 92;
@@ -217,7 +215,7 @@
             // 
             this.comboBoxGovernment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGovernment.FormattingEnabled = true;
-            this.comboBoxGovernment.Location = new System.Drawing.Point(24, 531);
+            this.comboBoxGovernment.Location = new System.Drawing.Point(24, 510);
             this.comboBoxGovernment.Name = "comboBoxGovernment";
             this.comboBoxGovernment.Size = new System.Drawing.Size(218, 26);
             this.comboBoxGovernment.TabIndex = 91;
@@ -226,7 +224,7 @@
             // 
             this.comboBoxPrimaryCulture.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPrimaryCulture.FormattingEnabled = true;
-            this.comboBoxPrimaryCulture.Location = new System.Drawing.Point(24, 415);
+            this.comboBoxPrimaryCulture.Location = new System.Drawing.Point(24, 374);
             this.comboBoxPrimaryCulture.Name = "comboBoxPrimaryCulture";
             this.comboBoxPrimaryCulture.Size = new System.Drawing.Size(218, 26);
             this.comboBoxPrimaryCulture.TabIndex = 90;
@@ -235,7 +233,7 @@
             // 
             this.comboBoxCaptial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCaptial.FormattingEnabled = true;
-            this.comboBoxCaptial.Location = new System.Drawing.Point(24, 357);
+            this.comboBoxCaptial.Location = new System.Drawing.Point(24, 306);
             this.comboBoxCaptial.Name = "comboBoxCaptial";
             this.comboBoxCaptial.Size = new System.Drawing.Size(218, 26);
             this.comboBoxCaptial.TabIndex = 89;
@@ -252,7 +250,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(24, 564);
+            this.label21.Location = new System.Drawing.Point(24, 548);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(89, 18);
             this.label21.TabIndex = 87;
@@ -270,7 +268,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(24, 506);
+            this.label19.Location = new System.Drawing.Point(24, 480);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(53, 18);
             this.label19.TabIndex = 85;
@@ -279,7 +277,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(24, 390);
+            this.label17.Location = new System.Drawing.Point(24, 344);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(89, 18);
             this.label17.TabIndex = 84;
@@ -288,7 +286,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(24, 332);
+            this.label16.Location = new System.Drawing.Point(24, 276);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(53, 18);
             this.label16.TabIndex = 83;
@@ -298,7 +296,7 @@
             // 
             this.comboBoxGraphics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGraphics.FormattingEnabled = true;
-            this.comboBoxGraphics.Location = new System.Drawing.Point(24, 299);
+            this.comboBoxGraphics.Location = new System.Drawing.Point(24, 238);
             this.comboBoxGraphics.Name = "comboBoxGraphics";
             this.comboBoxGraphics.Size = new System.Drawing.Size(218, 26);
             this.comboBoxGraphics.TabIndex = 82;
@@ -306,7 +304,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(24, 274);
+            this.label15.Location = new System.Drawing.Point(24, 208);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 18);
             this.label15.TabIndex = 81;
@@ -403,32 +401,12 @@
             this.buttonNextStep.UseVisualStyleBackColor = true;
             this.buttonNextStep.Click += new System.EventHandler(this.buttonNextStep_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 198);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 18);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "执政党*";
-            // 
-            // comboBoxParties
-            // 
-            this.comboBoxParties.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxParties.FormattingEnabled = true;
-            this.comboBoxParties.Location = new System.Drawing.Point(24, 233);
-            this.comboBoxParties.Name = "comboBoxParties";
-            this.comboBoxParties.Size = new System.Drawing.Size(218, 26);
-            this.comboBoxParties.TabIndex = 112;
-            // 
             // NewCountryHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 701);
             this.ControlBox = false;
-            this.Controls.Add(this.comboBoxParties);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonNextStep);
             this.Controls.Add(this.buttonPreviousStep);
             this.Controls.Add(this.textBoxNonstateConsciousness);
@@ -515,7 +493,5 @@
         private System.Windows.Forms.Label labelColor;
         private System.Windows.Forms.Button buttonPreviousStep;
         private System.Windows.Forms.Button buttonNextStep;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxParties;
     }
 }
