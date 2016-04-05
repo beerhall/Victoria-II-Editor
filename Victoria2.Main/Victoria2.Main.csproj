@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DE71B22-BA75-4791-838A-9BA5D2397D05}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Victoria2.Main</RootNamespace>
+    <AssemblyName>Victoria2.Main</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cultrues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cultrues.Designer.cs">
+      <DependentUpon>Cultrues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCountry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCountry.Designer.cs">
+      <DependentUpon>NewCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCountryCultrues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCountryCultrues.Designer.cs">
+      <DependentUpon>NewCountryCultrues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCountryHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCountryHistory.Designer.cs">
+      <DependentUpon>NewCountryHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCountryPoliticalReforms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCountryPoliticalReforms.Designer.cs">
+      <DependentUpon>NewCountryPoliticalReforms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCountrySocialReform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCountrySocialReform.Designer.cs">
+      <DependentUpon>NewCountrySocialReform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCountryTechnology.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCountryTechnology.Designer.cs">
+      <DependentUpon>NewCountryTechnology.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCountryUpperHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCountryUpperHouse.Designer.cs">
+      <DependentUpon>NewCountryUpperHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewGoods.Designer.cs">
+      <DependentUpon>NewGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewGovernment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewGovernment.Designer.cs">
+      <DependentUpon>NewGovernment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parties.Designer.cs">
+      <DependentUpon>Parties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PoliticalReforms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PoliticalReforms.Designer.cs">
+      <DependentUpon>PoliticalReforms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocialReforms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocialReforms.Designer.cs">
+      <DependentUpon>SocialReforms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Technology.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Technology.Designer.cs">
+      <DependentUpon>Technology.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpperHouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpperHouse.Designer.cs">
+      <DependentUpon>UpperHouse.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Victoria2.Domain\Victoria2.Domain.csproj">
+      <Project>{252ce322-3540-4138-87b0-321fc443f911}</Project>
+      <Name>Victoria2.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Victoria2.Service\Victoria2.Service.csproj">
+      <Project>{0e7767cf-fff1-4523-9c4a-c128bf57c32e}</Project>
+      <Name>Victoria2.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cultrues.resx">
+      <DependentUpon>Cultrues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCountry.resx">
+      <DependentUpon>NewCountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCountryCultrues.resx">
+      <DependentUpon>NewCountryCultrues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCountryHistory.resx">
+      <DependentUpon>NewCountryHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCountryPoliticalReforms.resx">
+      <DependentUpon>NewCountryPoliticalReforms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCountrySocialReform.resx">
+      <DependentUpon>NewCountrySocialReform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCountryTechnology.resx">
+      <DependentUpon>NewCountryTechnology.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCountryUpperHouse.resx">
+      <DependentUpon>NewCountryUpperHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewGoods.resx">
+      <DependentUpon>NewGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewGovernment.resx">
+      <DependentUpon>NewGovernment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parties.resx">
+      <DependentUpon>Parties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PoliticalReforms.resx">
+      <DependentUpon>PoliticalReforms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocialReforms.resx">
+      <DependentUpon>SocialReforms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Technology.resx">
+      <DependentUpon>Technology.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpperHouse.resx">
+      <DependentUpon>UpperHouse.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

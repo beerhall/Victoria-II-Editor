@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Victoria2.Main", "Victoria2.Main\Victoria2.Main.csproj", "{3DE71B22-BA75-4791-838A-9BA5D2397D05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Victoria2.Domain", "Victoria2.Domain\Victoria2.Domain.csproj", "{252CE322-3540-4138-87B0-321FC443F911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Victoria2.Service", "Victoria2.Service\Victoria2.Service.csproj", "{0E7767CF-FFF1-4523-9C4A-C128BF57C32E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DE71B22-BA75-4791-838A-9BA5D2397D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE71B22-BA75-4791-838A-9BA5D2397D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE71B22-BA75-4791-838A-9BA5D2397D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE71B22-BA75-4791-838A-9BA5D2397D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{252CE322-3540-4138-87B0-321FC443F911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252CE322-3540-4138-87B0-321FC443F911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252CE322-3540-4138-87B0-321FC443F911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252CE322-3540-4138-87B0-321FC443F911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E7767CF-FFF1-4523-9C4A-C128BF57C32E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7767CF-FFF1-4523-9C4A-C128BF57C32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7767CF-FFF1-4523-9C4A-C128BF57C32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7767CF-FFF1-4523-9C4A-C128BF57C32E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
