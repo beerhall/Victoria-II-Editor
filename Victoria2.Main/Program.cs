@@ -17,7 +17,8 @@ namespace Victoria2.Main
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            //Application.Run(new MainForm());
+            Application.Run(new NewPop());
         }
 
         static public void translate_to_xml(string path)
